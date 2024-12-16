@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll</title>
+    <link rel="stylesheet" href="static\css\style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Poll created by John Lenard Pabiano</h2>
+        </header>
+        <h1>{{ poll['question'] }}</h1>
+        <form action="/vote" method="post">
+            {% for index, option in enumerate(poll['options']) %}
+                <div class="option">
+                    <input type="radio" name="option" value="{{ index }}" id="option{{ index }}" required>
+                    <label for="option{{ index }}">{{ option }}</label>
+                </div>
+            {% endfor %}
+            <button type="submit" class="vote-button">Vote</button>
+        </form>
+    </div>
+</body>
+</html>

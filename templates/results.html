@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+    <link rel="stylesheet" href="static\css\style.css">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Poll created by John Lenard Pabiano</h2>
+        </header>
+        <h1>Results: {{ poll['question'] }}</h1>
+        <ul class="results-list">
+            {% for option, vote in zip(poll['options'], poll['votes']) %}
+                <li class="result-item">
+                    {{ option }}: <span class="vote-count">{{ vote }}</span> votes
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="back-link">Back to Poll</a>
+    </div>
+</body>
+</html>
